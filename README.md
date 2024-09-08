@@ -1,5 +1,3 @@
----
-
 ## ResurrectAI
 
 **ResurrectAI** is an AI-driven chat application designed to bring the wisdom and knowledge of great historical personalities to life. Leveraging advanced language models and fine-tuning techniques, ResurrectAI enables users to interact with AI avatars of iconic figures, gaining access to their insights, guidance, and philosophical teachings in real-time.
@@ -25,5 +23,3 @@ ResurrectAI creates a platform where users can engage in dynamic conversations w
 
 ### Conclusion
 ResurrectAI is more than just a chat application; it’s a platform that connects users with the wisdom of the past, offering a unique blend of education, inspiration, and emotional engagement. By continuing to refine and expand the model, ResurrectAI aims to provide a truly transformative experience, making historical knowledge accessible and relevant to the modern world.
-
----
