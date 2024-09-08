@@ -124,7 +124,7 @@ The Flutter application is developed but not yet connected to the AI model for i
 ![WhatsApp Image 2024-09-08 at 18 07 07_c3e680e0](https://github.com/user-attachments/assets/d401a4ab-b0f7-4fae-b7cf-d9a5d23df22b)
 ![WhatsApp Image 2024-09-08 at 18 07 06_f9115181](https://github.com/user-attachments/assets/f6eeedd2-47b5-47cf-a3cb-a0cec10f2e74)
 ![WhatsApp Image 2024-09-08 at 18 07 06_784a0e26](https://github.com/user-attachments/assets/e433ad22-d364-43ab-a4e8-58c0f7cb879b)
-
+<img src= "https://github.com/user-attachments/assets/0c9169fe-d3cd-4bc2-9ba9-bba863f7395f" width = "200"/>
 *Example: Screenshot showing Firebase setup in Flutter.*
 
 
