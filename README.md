@@ -127,7 +127,7 @@ The Flutter application is developed but not yet connected to the AI model for i
 <img src= "https://github.com/user-attachments/assets/e433ad22-d364-43ab-a4e8-58c0f7cb879b" width = "200"/>
 </p>
 
-*Example: Screenshot showing Firebase setup in Flutter.*
+*Example: Screenshot showing Android Application developed in Flutter.*
 
 
 ## Contributing
