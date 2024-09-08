@@ -34,7 +34,7 @@ ResurrectAI is a project designed to bring great historical personalities to lif
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/resurrectai.git
+   git clone https://github.com/harshit0414/resurrectai.git
    cd resurrectai
    ```
 
@@ -126,15 +126,6 @@ To allow users to download and use the ResurrectAI Flutter app with their own Fi
 
 The Flutter application is developed but not yet connected to the AI model for interactivity. Once connected, instructions for using the mobile app will be provided in future updates.
 
-## Screenshots
-
-To assist users with setting up and using the project, screenshots have been included in the `static/screenshots/` directory. Below are some key examples:
-
-- **Flask App Interface**: `static/screenshots/flask_app.png`
-- **Training Notebook**: `static/screenshots/training_notebook.png`
-- **Inference Notebook**: `static/screenshots/inference_notebook.png`
-- **Firebase Setup in Flutter**: `static/screenshots/firebase_setup.png`
-
 ## Contributing
 
 If you'd like to contribute to ResurrectAI, feel free to fork the repository, make your changes, and submit a pull request. Ensure that your code adheres to the project’s coding standards.
@@ -146,4 +137,4 @@ If you'd like to contribute to ResurrectAI, feel free to fork the repository, ma
 
 ## Contact
 
-For any queries or support, please contact [your email] or open an issue in the repository.
+For any queries or support, please contact harshit0414@gmail.com or open an issue in the repository.
