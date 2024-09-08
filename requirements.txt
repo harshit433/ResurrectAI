@@ -48,7 +48,6 @@ transformers==4.44.2
 typing_extensions==4.12.2
 tyro==0.8.10
 tzdata==2024.1
-unsloth @ git+https://github.com/unslothai/unsloth.git@d91d40a7b6b556f2d1fdd3e1e430f7a76a799627
 urllib3==2.2.2
 Werkzeug==3.0.4
 wheel==0.43.0
