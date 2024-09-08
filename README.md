@@ -67,7 +67,7 @@ ResurrectAI is a project designed to bring great historical personalities to lif
 2. **Access the Web Interface**:
    Once the application is running, open your browser and navigate to `http://localhost:5000` to interact with the AI model.
 
-   ![Screenshot of Flask App](static/screenshots/flask_app.png)  
+   ![image](https://github.com/user-attachments/assets/2dae7af3-04c8-445d-b4d1-14e63b028bd9)
    *Example: Screenshot showing the ResurrectAI web interface.*
 
 ### 3. Alternative for Non-Linux Users
@@ -77,14 +77,11 @@ If you do not have a Linux machine, you can use the provided Jupyter notebooks:
 1. **Training the Model**:  
    Open the `ResurrectAI_Training.ipynb` notebook in Jupyter and follow the steps to train the AI model.
 
-   ![Screenshot of Training Notebook](static/screenshots/training_notebook.png)  
+   ![image](https://github.com/user-attachments/assets/7d8f766f-4422-471d-a8a7-a28f9124920d)
    *Example: Screenshot showing the training process in Jupyter.*
 
 2. **Running Inference**:  
    Use the `ResurrectAI_Inference.ipynb` notebook to run inference and interact with the model in a non-Linux environment.
-
-   ![Screenshot of Inference Notebook](static/screenshots/inference_notebook.png)  
-   *Example: Screenshot showing the inference process in Jupyter.*
 
 ### 4. Connecting Firebase to the Flutter Application
 
