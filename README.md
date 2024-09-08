@@ -1,5 +1,3 @@
-Here is a professional project description for your GitHub repository, based on the project synopsis:
-
 ---
 
 ## **ResurrectAI**
