@@ -53,3 +53,5 @@ Werkzeug==3.0.4
 wheel==0.43.0
 xxhash==3.5.0
 yarl==1.10.0
+bitsandbytes==0.43.3
+xformers==0.0.27
