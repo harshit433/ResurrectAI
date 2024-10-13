@@ -3,10 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../Widgets/home_calls.dart';
-import '../Widgets/home_contacts.dart';
-import '../Widgets/home_messages.dart';
-import '../Widgets/home_settings.dart';
+import '../../Widgets/home_calls.dart';
+import '../../Widgets/home_contacts.dart';
+import '../../Widgets/home_messages.dart';
+import '../../Widgets/home_settings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

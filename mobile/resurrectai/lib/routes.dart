@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:resurrectai/Pages/splash_screen.dart';
-import 'package:resurrectai/Pages/splash_screen1.dart';
+import 'package:resurrectai/Pages/SplashScreen/splash_screen.dart';
+import 'package:resurrectai/Pages/LandingScreen/landing_screen.dart';
 import 'package:resurrectai/Pages/signup_screen.dart';
-import 'package:resurrectai/Pages/login_screen.dart';
-import 'package:resurrectai/Pages/home_screen.dart';
+import 'package:resurrectai/Pages/LoginScreen/login_screen.dart';
+import 'package:resurrectai/Pages/HomeScreen/home_screen.dart';
 import 'package:resurrectai/Pages/chat_screen.dart';
 import 'package:resurrectai/Pages/call_screen.dart';
 import 'package:resurrectai/Pages/profile_screen.dart';
@@ -24,7 +24,7 @@ class Routes {
 
   static Map<String, WidgetBuilder> routes = {
     splashscreen: (context) => const SplashScreen(),
-    splashscreen1: (context) => const SplashScreen1(),
+    splashscreen1: (context) => const LandingScreen(),
     signupscreen: (context) => SignUpScreen(),
     loginscreen: (context) => LogInScreen(),
     homescreen: (context) => const HomeScreen(),

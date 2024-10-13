@@ -97,21 +97,27 @@ class AuthService {
     }
   }
 
-  Future<void> signin(
-      {required String email,
-      required String password,
-      required BuildContext context}) async {
+  Future<String> signin({
+    required String email,
+    required String password,
+  }) async {
+    String result = '';
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      await Future.delayed(const Duration(seconds: 1));
-      Navigator.pushReplacementNamed(context, Routes.homescreen);
+      result = 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-      } else if (e.code == 'wrong-password') {}
+        result = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        result = 'Wrong password provided for that user.';
+      } else {
+        result = 'Error';
+      }
     }
+    return result;
   }
 
   void signOut(BuildContext context) async {
