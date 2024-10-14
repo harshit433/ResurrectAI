@@ -1,10 +1,11 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resurrectai/services/auth_service.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
-
+  String url = '';
   final TextEditingController nameController = TextEditingController();
 
   final TextEditingController descController = TextEditingController();
@@ -12,6 +13,17 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+  void data() async {
+    final storageRef = FirebaseStorage.instance.ref();
+    final imagesRef = storageRef.child('images/images.png');
+
+    // Get the download URL
+    url = await imagesRef.getDownloadURL();
+  }
+
+  void initState() {
+    data();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,6 +187,7 @@ class SignUpScreen extends StatelessWidget {
                     onTap: () async {
                       print(emailController.text);
                       await AuthService().signup(
+                          profileImageUrl: url,
                           name: nameController.text,
                           description: descController.text,
                           email: emailController.text,

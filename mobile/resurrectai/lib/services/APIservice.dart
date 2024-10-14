@@ -6,20 +6,20 @@ class ApiService {
 
   ApiService(this.apiUrl);
 
-  Future<String> predict(String inputText) async {
+  Future<String> predict(
+      String inputText, List<Map<String, String>> data) async {
     final response = await http.post(
-      Uri.parse('$apiUrl/api'),
+      Uri.parse('https://amazingly-happy-hamster.ngrok-free.app/predict'),
       headers: {
         'Content-Type': 'application/json',
       },
-      body: jsonEncode({'input': inputText}),
+      body: jsonEncode({'text': inputText, 'data': data}),
     );
 
     if (response.statusCode == 200) {
-      print(jsonDecode(response.body)['output']);
-      return jsonDecode(response.body)['output'];
+      return jsonDecode(response.body)['Gandhi Ji'];
     } else {
-      throw Exception('Failed to load prediction');
+      throw Exception('Failed to load prediction: ${response.body}');
     }
   }
 }

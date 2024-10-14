@@ -13,7 +13,23 @@ RUN pip uninstall bitsandbytes
 RUN pip install -U bitsandbytes
 RUN pip install fastapi[standard]
 
+# Install required system packages for ngrok
+RUN apt-get update && apt-get install -y curl gnupg && \
+    curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
+    | tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && \
+    echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
+    | tee /etc/apt/sources.list.d/ngrok.list && \
+    apt-get update && apt-get install -y ngrok && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Copy the main application file
 COPY ./main.py /code/
 
-# Command to run FastAPI app
-CMD ["fastapi", "run", "main.py" ,"--port", "80"]
+# Copy the entry point script
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 80
+
+# Command to run the entry point script
+CMD ["/usr/local/bin/entrypoint.sh"]

@@ -5,12 +5,15 @@ import 'package:flutter/material.dart';
 import '../routes.dart';
 
 class AuthService {
-  Future<void> signup(
-      {required String name,
-      required String description,
-      required String email,
-      required String password,
-      required BuildContext context}) async {
+  Future<String> signup({
+    required String name,
+    required String description,
+    required String email,
+    required String password,
+    required String profileImageUrl,
+    required BuildContext context,
+  }) async {
+    String result = '';
     try {
       Future<List<Map<String, dynamic>>> getDocumentIds() async {
         CollectionReference collection =
@@ -23,8 +26,6 @@ class AuthService {
             "Intro": doc['Intro_message'] ?? 'Hi there',
           };
         }).toList();
-        print("AI Models recieved data");
-        print(documentIds);
         return documentIds;
       }
 
@@ -86,15 +87,23 @@ class AuthService {
         'Name': name,
         'Description': description,
         'createdAt': Timestamp.now(),
+        'profileImageUrl': profileImageUrl,
       });
 
       await createsubcollections();
       await Future.delayed(const Duration(seconds: 1));
       Navigator.pushReplacementNamed(context, Routes.homescreen);
+      result = 'Success';
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-      } else if (e.code == 'email-already-in-use') {}
+        result = 'The password provided is too weak';
+      } else if (e.code == 'email-already-in-use') {
+        result = 'The account already exists for that email';
+      } else {
+        result = 'Error';
+      }
     }
+    return result;
   }
 
   Future<String> signin({

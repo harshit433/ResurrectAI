@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:resurrectai/Pages/SplashScreen/splash_screen.dart';
 import 'package:resurrectai/Pages/LandingScreen/landing_screen.dart';
-import 'package:resurrectai/Pages/signup_screen.dart';
+import 'package:resurrectai/Pages/SignUpScreen/signup_screen.dart';
 import 'package:resurrectai/Pages/LoginScreen/login_screen.dart';
 import 'package:resurrectai/Pages/HomeScreen/home_screen.dart';
 import 'package:resurrectai/Pages/chat_screen.dart';

@@ -10,10 +10,10 @@ model = AutoPeftModelForCausalLM.from_pretrained(
     load_in_4bit = False,
 )
 tokenizer = AutoTokenizer.from_pretrained("ressurectAI/Gandhi10.0")
-messages = []
 
 class PredictionRequest(BaseModel):
     text: str
+    data: list
 
 @app.get("/")
 def read_root():
@@ -22,8 +22,8 @@ def read_root():
 @app.post("/predict")
 async def predict(request: PredictionRequest):
     try:
+        messages = reversed(request.data)
         messages.append({'role':'user','content':request.text})
-
         inputs = tokenizer.apply_chat_template(
         messages,
         tokenize=True,

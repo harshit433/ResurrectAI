@@ -17,10 +17,12 @@ class _ChatScreenState extends State<ChatScreen> {
   late String personality;
 
   List<Map<String, dynamic>> messages = [];
+  List<Map<String, String>> messages_data_for_prediction = [];
+
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _messageController = TextEditingController();
   final ApiService _apiService =
-      ApiService("https://c05e-34-23-48-191.ngrok-free.app");
+      ApiService("https://amazingly-happy-hamster.ngrok-free.app");
 
   void _scrollToBottom() {
     _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
@@ -38,7 +40,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
   Future<void> get_response(String message) async {
     try {
-      final response = await _apiService.predict(_messageController.text);
+      final response = await _apiService.predict(
+          _messageController.text, messages_data_for_prediction);
 
       await FirebaseFirestore.instance
           .collection('users')
@@ -62,6 +65,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Future<void> load_chats() async {
     try {
       List<Map<String, dynamic>> messages_fetched = [];
+      List<Map<String, String>> messages_data = [];
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
           .collection('users')
           .doc(FirebaseAuth.instance.currentUser!.uid)
@@ -81,6 +85,9 @@ class _ChatScreenState extends State<ChatScreen> {
             recieve['isMe'] = false;
             messages_fetched.add(recieve);
             messages_fetched.add(send);
+            messages_data.add({'role': 'user', 'content': message['send']});
+            messages_data
+                .add({'role': 'assistant', 'content': message['recieve']});
           }
         } catch (e) {
           print('Error fetching chats: $e');
@@ -88,6 +95,7 @@ class _ChatScreenState extends State<ChatScreen> {
       }
       setState(() {
         messages = messages_fetched.reversed.toList();
+        messages_data_for_prediction = messages_data;
       });
     } catch (e) {
       print('Error fetching documents: $e');
