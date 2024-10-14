@@ -2,18 +2,18 @@
 FROM python:3.10-slim
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /code
 
 # Copy the current directory contents into the container
-COPY . /app
+COPY ./requirements.txt /code/requirements.txt
 
 # Install required Python packages
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 RUN pip uninstall bitsandbytes
 RUN pip install -U bitsandbytes
+RUN pip install fastapi[standard]
 
-# Expose port for FastAPI
-EXPOSE 8000
+COPY ./main.py /code/
 
 # Command to run FastAPI app
-CMD ["uvicorn", "app:app", "--host", "127.0.0.1", "--port", "8000"]
+CMD ["fastapi", "run", "main.py" ,"--port", "80"]
